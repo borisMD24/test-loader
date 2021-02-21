@@ -1,19 +1,16 @@
-/*      _________________     _ _.-''''''--. 
-        FFFFFFFFFFFreedom   .` `.  ...------.\   
-       /FFFFFFFFFFFactory  / |O :-`   _,.,---.)
-       FFFFF/              '     ;--''      
-      /FFFFF               | _.' (        
-      FFFFFFFFFFF          ,' _,' `-.
-     /FFFFFFFFFF/          : /       '.
-     FFFFF/                    code  ' 
-    /FFFFF                  `.|    to   `-.
-    FFFFF/                    `-._  be    \
-   /FFFFF                         '.  ,-.  \
-   FFFFF/                          _`...` \
-   FFFFF                       .,-'.,-'  ``: \
- ==============================((=((======== \== bobo le plus beau fait du js
-                                              \
-                                               \
-                                              ` \
-                                                -*/
- 
+window.addEventListener("load", () => {
+  prompt();
+})
+
+async function prompt () {
+  let img = document.querySelectorAll("img");
+  for(let i = 0; i < img.length; i++){
+    console.log(img[i]);
+    img[i].style.transform = "rotateX(0deg)";
+    await sleep(250);
+  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
