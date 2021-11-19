@@ -14,7 +14,7 @@ class svgImage {
     const xDir = ((Math.random()>=0.5)? 1 : 0) * 2 - 1
     const zDir = ((Math.random()>=0.5)? 1 : 0) * 2 - 1
 
-    this.element.style.transform = `translate(${xDir * Math.random()*50}vw, ${yDir * Math.random()*50}vh)`/*+` translateZ(${zDir * Math.random()*50}vh) rotate(${Math.random()*360}deg)`*/;
+    this.element.style.transform = `translate(${Math.random()*100}vw, ${Math.random()*100}vh)`+` translateZ(${zDir * Math.random()*50}vh) rotateX(${Math.random()*360}deg) rotateY(${Math.random()*360}deg)`;
     this.element.style.transitionDelay = `${Math.random()*2}s`
     this.element.style.transitionDuration = `${Math.random()*2}s`
     this.element.style.opacity = "0"
@@ -33,23 +33,35 @@ class svgImage {
   }
 }
 
+class SVGScene {
+  constructor(element){
+    this.element = element;
+    this.imgs = [];
+    this.setUp();
+    
+  }
+  setUp(){
+    for(let i = 0; i <= 436; i++){
+     this.imgs.push(new svgImage(this.element.getElementById(`id_${i}`)));
+    }
+  }
+  trigger(){
+    this.imgs.forEach(img => {
+      img.reshape();
+    })
+  }
+
+}
+
 const svg = document.getElementsByTagName("svg")[0];
-console.log(svg);
 
-let els = []
-for(let i = 0; i <= 436; i++){
-  els.push(svg.getElementById(`id_${i}`))
+let scene = new SVGScene(svg)
+
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
-
-let imgs = []
-els.forEach(el => {
-  imgs.push(new svgImage(el))
-})
-
-const reshape = () => {
-  imgs.forEach(img => {
-    img.reshape();
-  })
+async function reveal(){
+  await sleep(2000);
+  scene.trigger();
 }
-
-reshape();
+reveal()
