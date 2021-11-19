@@ -14,7 +14,7 @@ class svgImage {
     const xDir = ((Math.random()>=0.5)? 1 : 0) * 2 - 1
     const zDir = ((Math.random()>=0.5)? 1 : 0) * 2 - 1
 
-    this.element.style.transform = `translate(${xDir * Math.random()*50}vw, ${yDir * Math.random()*50}vh) translateZ(${zDir * Math.random()*50}vh) rotate(${Math.random()*360}deg)`;
+    this.element.style.transform = `translate(${xDir * Math.random()*50}vw, ${yDir * Math.random()*50}vh)`/*+` translateZ(${zDir * Math.random()*50}vh) rotate(${Math.random()*360}deg)`*/;
     this.element.style.transitionDelay = `${Math.random()*2}s`
     this.element.style.transitionDuration = `${Math.random()*2}s`
     this.element.style.opacity = "0"
