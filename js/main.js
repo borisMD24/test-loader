@@ -20,7 +20,7 @@ class svgImage {
     this.element.style.opacity = "0"
   }
   setElementTransition(){
-    this.element.style.transitionDelay = `${Math.random()*3}s`
+    this.element.style.transitionDelay = `${Math.random()*1.5}s`
     this.element.style.transitionDuration = `${Math.random()*2}s`
   }
   getTranslateXY(m) {
