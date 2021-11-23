@@ -32,7 +32,6 @@ class svgImage {
   }
   reshape(){
     setTimeout(()=>{
-      console.log(this.x);
       this.element.style.transform = `translateX(${this.x}px) translateY(${this.y}px)`
       this.element.style.opacity = "1"
     }, 300)
